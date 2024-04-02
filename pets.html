@@ -77,11 +77,27 @@
                 joy for everyone who knows him.
             </P>
             <h3 class="pet-img-title">Photo Gallery</h3>
-            <img src="images/peddie_play.jpg" class="pet-img-1" width="200" alt="Peddie is playing in the snow.">
-            <img src="images/peddie_swim.jpg" class="pet-img-2" width="200" alt="Peddie is swimming in a lake.">
-            <img src="images/peddie_smile.jpg" class="pet-img-3" id="paddie-3" width="200"
-                alt="Peddie is the sweetest in the world.">
-            <img src="images/peddie_sleep.jpg" class="pet-img-4" width="200" alt="Peddie loves sleeping on the couch.">
+            <div class="peddie-slides">
+            <div class="mySlides">
+                <img src="images/peddie_play.jpg"  width="200" alt="Peddie is playing in the snow.">
+            </div>
+            <div class="mySlides">
+        
+            <img src="images/peddie_swim.jpg"  width="200" alt="Peddie is swimming in a lake.">
+            </div>
+            <div class="mySlides">
+            <img src="images/peddie_smile.jpg"  id="paddie-3" width="200"
+                alt="Peddie is the sweetest in the world."></div>
+            <div class="mySlides">
+            <img src="images/peddie_sleep.jpg"  width="200" alt="Peddie loves sleeping on the couch.">
+            </div>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+              </div>
+            </div>
             <div class="pet-likes">
                 
                     <h3>Likes</h3>
@@ -94,7 +110,34 @@
                     </div>
                 
             </div>
-
+            <script>
+                let slideIndex = 1;
+                showSlides(slideIndex);
+                
+                function plusSlides(n) {
+                  showSlides(slideIndex += n);
+                }
+                
+                function currentSlide(n) {
+                  showSlides(slideIndex = n);
+                }
+                
+                function showSlides(n) {
+                  let i;
+                  let slides = document.getElementsByClassName("mySlides");
+                  let dots = document.getElementsByClassName("dot");
+                  if (n > slides.length) {slideIndex = 1}    
+                  if (n < 1) {slideIndex = slides.length}
+                  for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                  }
+                  for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                  }
+                  slides[slideIndex-1].style.display = "block";  
+                  dots[slideIndex-1].className += " active";
+                }
+                </script>
             <!-- Yiran Zheng -->
         </div>
         <div class="pet-grid-container">
